@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ActiveRecord::AttributeConverter::VERSION
   spec.authors       = ["Kohei Suzuki"]
   spec.email         = ["eagletmt@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Transparent conversion for ActiveRecord}
+  spec.description   = %q{Transparent conversion for ActiveRecord}
   spec.homepage      = ""
   spec.license       = "MIT"
 
