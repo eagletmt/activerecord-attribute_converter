@@ -5,7 +5,7 @@ require 'activerecord/attribute_converter/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "activerecord-attribute_converter"
-  spec.version       = Activerecord::AttributeConverter::VERSION
+  spec.version       = ActiveRecord::AttributeConverter::VERSION
   spec.authors       = ["Kohei Suzuki"]
   spec.email         = ["eagletmt@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}

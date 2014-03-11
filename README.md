@@ -1,4 +1,4 @@
-# Activerecord::AttributeConverter
+# ActiveRecord::AttributeConverter
 
 TODO: Write a gem description
 
