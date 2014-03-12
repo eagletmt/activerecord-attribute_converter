@@ -6,7 +6,7 @@ module ActiveRecord
         conditions = args[1]
         options = args[2] || {}
 
-        if !conditions && !options.present? && updates.is_a?(Hash)
+        if !conditions && !options.present? && !@klass.attribute_converters.empty? && updates.is_a?(Hash)
           updates = updates.stringify_keys
           @klass.attribute_converters.each do |attr, converter|
             if updates.has_key?(attr)
