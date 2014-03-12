@@ -1,20 +1,20 @@
 class Plus10
-  def to_internal(n)
+  def internalize(n)
     n+10
   end
 
-  def from_internal(n)
+  def externalize(n)
     n-10
   end
 end
 
 class Rot13
-  def to_internal(str)
+  def internalize(str)
     str.tr('A-Za-z', 'N-ZA-Mn-za-m')
   end
 
-  def from_internal(str)
-    to_internal(str)
+  def externalize(str)
+    internalize(str)
   end
 end
 

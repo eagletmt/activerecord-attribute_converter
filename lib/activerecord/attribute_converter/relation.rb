@@ -10,7 +10,7 @@ module ActiveRecord
           updates = updates.stringify_keys
           @klass.attribute_converters.each do |attr, converter|
             if updates.has_key?(attr)
-              updates[attr] = converter.to_internal(updates[attr])
+              updates[attr] = converter.internalize(updates[attr])
             end
           end
           args[0] = updates

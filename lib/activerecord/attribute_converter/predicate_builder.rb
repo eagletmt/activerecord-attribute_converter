@@ -7,7 +7,7 @@ module ActiveRecord
 
         klass.attribute_converters.each do |attr, converter|
           if attributes.has_key?(attr)
-            attributes[attr] = converter.to_internal(attributes[attr])
+            attributes[attr] = converter.internalize(attributes[attr])
           end
         end
 

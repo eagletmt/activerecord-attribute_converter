@@ -6,7 +6,7 @@ module ActiveRecord
       def internalize_attributes
         self.class.attribute_converters.each do |attr, converter|
           if attributes.has_key?(attr)
-            send("#{attr}=", converter.to_internal(send(attr)))
+            send("#{attr}=", converter.internalize(send(attr)))
           end
         end
       end
@@ -14,7 +14,7 @@ module ActiveRecord
       def externalize_attributes
         self.class.attribute_converters.each do |attr, converter|
           if attributes.has_key?(attr)
-            send("#{attr}=", converter.from_internal(send(attr)))
+            send("#{attr}=", converter.externalize(send(attr)))
           end
         end
       end
