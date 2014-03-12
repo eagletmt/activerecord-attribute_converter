@@ -1,4 +1,5 @@
 # ActiveRecord::AttributeConverter
+[![Build Status](https://api.travis-ci.org/eagletmt/activerecord-attribute_converter.png?branch=master)](https://travis-ci.org/eagletmt/activerecord-attribute_converter)
 
 Transparent conversion for ActiveRecord.
 
