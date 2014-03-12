@@ -19,17 +19,23 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-class Plus10
+class Plus
+  def initialize(x)
+    @x = x
+  end
+
   def internalize(n)
-    n+10
+    n+@x
   end
 
   def externalize(n)
-    n-10
+    n-@x
   end
 end
 
-class Rot13
+module Rot13
+  module_function
+
   def internalize(str)
     str.tr('A-Za-z', 'N-ZA-Mn-za-m')
   end
@@ -40,8 +46,8 @@ class Rot13
 end
 
 class Book < ActiveRecord::Base
-  apply_converter :page, Plus10.new
-  apply_converter :title, Rot13.new
+  apply_converter :page, Plus.new(10)
+  apply_converter :title, Rot13
 end
 ```
 
