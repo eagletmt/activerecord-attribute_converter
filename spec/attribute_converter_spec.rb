@@ -28,6 +28,15 @@ describe ActiveRecord::AttributeConverter do
       end
     end
 
+    describe 'find_by', version: 4 do
+      it 'finds record by external value' do
+        expect(Book.find_by(author: 'Author')).to_not be_nil
+        expect(Book.find_by(title: 'Title')).to_not be_nil
+        expect(Book.find_by(author: 'Author', page: 24)).to_not be_nil
+        expect(Book.find_by(title: 'Title', page: 24)).to_not be_nil
+      end
+    end
+
     describe 'where' do
       it 'finds records by Hash' do
         expect(Book.where(author: 'Author')).to exist

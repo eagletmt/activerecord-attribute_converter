@@ -11,6 +11,7 @@ require File.expand_path('../models', __FILE__)
 
 RSpec.configure do |config|
   config.filter_run :focus
+  config.filter_run_excluding version: lambda { |v| v != ActiveRecord::VERSION::MAJOR }
   config.run_all_when_everything_filtered = true
 
   config.order = :random
