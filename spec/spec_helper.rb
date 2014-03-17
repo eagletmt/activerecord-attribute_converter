@@ -5,7 +5,7 @@ ActiveRecord::Base.configurations['test'] = {
   adapter: 'sqlite3',
   database: ':memory:',
 }
-ActiveRecord::Base.establish_connection('test')
+ActiveRecord::Base.establish_connection(:test)
 require File.expand_path('../schema', __FILE__)
 require File.expand_path('../models', __FILE__)
 
