@@ -21,8 +21,3 @@ module ActiveRecord
     end
   end
 end
-
-ActiveRecord::Relation.class_eval do
-  include ActiveRecord::AttributeConverter::Relation
-  alias_method_chain :update_all, :attribute_converter
-end

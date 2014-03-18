@@ -1,3 +1,5 @@
+require 'active_support/concern'
+
 module ActiveRecord
   module AttributeConverter
     module Base
@@ -44,5 +46,3 @@ module ActiveRecord
     end
   end
 end
-
-ActiveRecord::Base.send(:include, ActiveRecord::AttributeConverter::Base)

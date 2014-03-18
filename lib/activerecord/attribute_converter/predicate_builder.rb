@@ -19,8 +19,3 @@ module ActiveRecord
     end
   end
 end
-
-ActiveRecord::PredicateBuilder.singleton_class.class_eval do
-  include ActiveRecord::AttributeConverter::PredicateBuilder
-  alias_method_chain :build_from_hash, :attribute_converter
-end
