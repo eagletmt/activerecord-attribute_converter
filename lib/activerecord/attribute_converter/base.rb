@@ -1,47 +1,31 @@
-require 'active_support/concern'
-
 module ActiveRecord
   module AttributeConverter
     module Base
-      extend ActiveSupport::Concern
+      class Serializer
+        def initialize(converter)
+          @converter = converter
+        end
 
-      def internalize_attributes
-        self.class.attribute_converters.each do |attr, converter|
-          if attributes.has_key?(attr)
-            send("#{attr}=", converter.internalize(send(attr)))
-          end
+        def dump(obj)
+          @converter.internalize(obj)
+        end
+
+        def load(obj)
+          @converter.externalize(obj)
         end
       end
 
-      def externalize_attributes
-        self.class.attribute_converters.each do |attr, converter|
-          if attributes.has_key?(attr)
-            send("#{attr}=", converter.externalize(send(attr)))
-          end
-        end
-      end
-
-      module ClassMethods
-        def apply_converter(attr, converter)
-          unless @attribute_converters
-            install_attribute_converter
-          end
-
-          self.attribute_converters[attr.to_s] = converter
-        end
-
-        def install_attribute_converter
+      def apply_converter(attr, converter)
+        unless @attribute_converters
           @attribute_converters = {}
-
-          before_save :internalize_attributes
-
-          after_save :externalize_attributes
-          after_find :externalize_attributes
         end
 
-        def attribute_converters
-          @attribute_converters || {}
-        end
+        serialize attr, Serializer.new(converter)
+        self.attribute_converters[attr.to_s] = converter
+      end
+
+      def attribute_converters
+        @attribute_converters || {}
       end
     end
   end

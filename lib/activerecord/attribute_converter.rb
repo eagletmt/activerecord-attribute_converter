@@ -5,7 +5,7 @@ require 'activerecord/attribute_converter/relation'
 require 'activerecord/attribute_converter/version'
 
 ActiveSupport.on_load(:active_record) do
-  ActiveRecord::Base.send(:include, ActiveRecord::AttributeConverter::Base)
+  ActiveRecord::Base.send(:extend, ActiveRecord::AttributeConverter::Base)
 
   ActiveRecord::PredicateBuilder.singleton_class.class_eval do
     include ActiveRecord::AttributeConverter::PredicateBuilder
