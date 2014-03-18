@@ -13,6 +13,9 @@ ActiveSupport.on_load(:active_record) do
   end
 
   ActiveRecord::Relation.class_eval do
+    # Use alias_method_chain instead of Module#prepend here.
+    # In Rails 4, activerecord-deprecated_finders monkey-patches update_all and
+    # the combination of alias_method_chain and prepend causes some trouble.
     include ActiveRecord::AttributeConverter::Relation
     alias_method_chain :update_all, :attribute_converter
   end
