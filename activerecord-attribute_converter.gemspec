@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["eagletmt@gmail.com"]
   spec.summary       = %q{Transparent conversion for ActiveRecord}
   spec.description   = %q{Transparent conversion for ActiveRecord}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/eagletmt/#{spec.name}"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
